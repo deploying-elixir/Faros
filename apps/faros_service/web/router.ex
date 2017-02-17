@@ -17,10 +17,11 @@ defmodule FarosService.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+    get "/post", PostController, :new # allow user to add new post
+    post "/post", PostController, :create # when user clicks 'add' button this gets called
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", FarosService do
-  #   pipe_through :api
-  # end
+   scope "/api", FarosService do
+     pipe_through :api
+   end
 end
