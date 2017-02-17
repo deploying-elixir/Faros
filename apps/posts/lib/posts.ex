@@ -1,0 +1,2 @@
+defmodule Posts do
+end
