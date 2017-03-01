@@ -8,4 +8,11 @@
     <input type="text" name="url"/>
     <button type="submit">Add Post</button>
   </form>
+
+  <!--the post_path refers to the folder post under template-->
+  <form action="<%= post_path(@conn, :show_all) %>" method="get">
+    <input type="hidden" name="_csrf_token" value="<%= get_csrf_token() %>"/>
+
+    <button type="submit">All Posts</button>
+  </form>
 </div>

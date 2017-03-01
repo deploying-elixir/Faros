@@ -11,4 +11,9 @@ defmodule FarosService.PostController do
     # Render the page which will allow the user to input the post they want to save
     render conn, "new_post.html"
   end
+
+  def show_all(conn, _params) do
+    IO.puts "Showing all posts"
+    render conn, "all_posts.html"
+  end
 end
