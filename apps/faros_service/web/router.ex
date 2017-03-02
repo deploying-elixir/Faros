@@ -19,6 +19,7 @@ defmodule FarosService.Router do
     get "/", PageController, :index
     get "/post", PostController, :new # allow user to add new post
     post "/post", PostController, :create # when user clicks 'add' button this gets called
+    get "/all_posts", PostController, :show_all # when user clicks 'All Posts' this is called
   end
 
    scope "/api", FarosService do

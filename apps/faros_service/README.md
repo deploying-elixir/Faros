@@ -1,5 +1,9 @@
 # FarosService
 
+To build your database:
+  * Have postgres running
+     * service postgresql start
+  * sudo -u postgres createdb faros_service_test
 To start your Phoenix app:
 
   * Install dependencies with `mix deps.get`
