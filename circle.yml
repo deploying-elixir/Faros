@@ -1,6 +1,6 @@
 machine:
   environment:
-  PATH:: "$HOME/.asdf/bin:$HOME/.asdf/shims:$PATH"
+    PATH: "$HOME/.asdf/bin:$HOME/.asdf/shims:$PATH"
 
 dependencies:
   cache_directories:
@@ -13,6 +13,6 @@ dependencies:
     - ./circle_pre_build.sh
     - mix deps.compile
     - mix compile
-  test:
-    override:
-      - mix test --cover
+test:
+  override:
+    - mix test --cover
