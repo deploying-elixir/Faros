@@ -1,4 +1,4 @@
 # Faros
 
-**TODO: Add description**
+Welcome to the Faros Application.
 
