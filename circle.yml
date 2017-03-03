@@ -1,0 +1,18 @@
+machine:
+  environment:
+  PATH:: "$HOME/.asdf/bin:$HOME/.asdf/shims:$PATH"
+
+dependencies:
+  cache_directories:
+    - ~/.asdf
+    - deps
+    - _build
+  pre:
+    - cp config/dev.secret.exs{.sample,}
+    - cp config/test.secret.exs{.sample,}
+    - ./circle_pre_build.sh
+    - mix deps.compile
+    - mix compile
+  test:
+    override:
+      - mix test --cover
