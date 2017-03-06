@@ -13,7 +13,6 @@ defmodule FarosService.Mixfile do
      compilers: [:phoenix, :gettext] ++ Mix.compilers,
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
-     #     aliases: aliases(),
      deps: deps()]
   end
 
@@ -51,9 +50,4 @@ defmodule FarosService.Mixfile do
   #     $ mix ecto.setup
   #
   # See the documentation for `Mix` for more info on aliases.
-  #defp aliases do
-  #  ["ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
-  #   "ecto.reset": ["ecto.drop", "ecto.setup"],
-  #   "test": ["ecto.create --quiet", "ecto.migrate", "test"]]
-  #end
 end
