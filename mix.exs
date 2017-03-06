@@ -5,7 +5,8 @@ defmodule Faros.Mixfile do
     [apps_path: "apps",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
-     deps: deps]
+     deps: deps,
+     aliases: aliases()]
   end
 
   # Dependencies can be Hex packages:
@@ -25,6 +26,9 @@ defmodule Faros.Mixfile do
   end
 
   defp aliases do
-    ["test": ["ecto.create", "ecto.migrate", "test"]]
+    ["ecto.setup": ["ecto.create", "ecto.migrate", "ecto.seed"],
+     "ecto.seed": ["run apps/faros_service/priv/repo/seeds.exs"],
+     "ecto.reset": ["ecto.drop", "ecto.setup"],
+     "test": ["ecto.create --quiet", "ecto.migrate", "test"]]
   end
 end
