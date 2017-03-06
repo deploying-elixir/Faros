@@ -10,12 +10,10 @@ dependencies:
   pre:
     - ./circle_pre_build.sh
     - mix deps.compile
-    - mix compile
+    - MIX_ENV=test mix compile
+    - MIX_ENV=test mix ecto.create
+    - MIX_ENV=test mix ecto.migrate
 
-database:
-    override:
-        - cd apps/faros_service
-        - mix ecto.migrate
 test:
   override:
     - mix test --cover
