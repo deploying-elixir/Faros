@@ -23,4 +23,8 @@ defmodule Faros.Mixfile do
   defp deps do
     []
   end
+
+  defp aliases do
+    ["test": ["ecto.create", "ecto.migrate", "test"]]
+  end
 end
