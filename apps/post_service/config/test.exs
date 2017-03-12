@@ -14,6 +14,6 @@ config :post_service, PostService.Repo,
   adapter: Ecto.Adapters.Postgres,
   username: "postgres",
   password: "postgres",
-  database: "post_service_repo",
+  database: "post_service_test",
   hostname: "localhost"
 

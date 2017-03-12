@@ -1,5 +1,6 @@
 defmodule PostService.PostRepository do
   import Ecto.Query
+
   def create(name, description) do
     {:ok, post} =
       %PostService.Post{name: name, description: description}

@@ -3,16 +3,8 @@
 use Mix.Config
 
 config :post_service,
-ecto_repos: [PostService.Repo]
+  ecto_repos: [PostService.Repo]
 
-#config :post_service, PostService.Repo,
-#  adapter: Ecto.Adapters.Postgres,
-#  database: "post_service_prod",
-#  username: "postgres",
-#  password: "postgres",
-#  hostname: "localhost"
-
-#
 # This configuration is loaded before any dependency and is restricted
 # to this project. If another project depends on this project, this
 # file won't be loaded nor affect the parent project. For this reason,
