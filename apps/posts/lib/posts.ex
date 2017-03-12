@@ -1,2 +1,0 @@
-defmodule Posts do
-end
