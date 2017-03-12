@@ -3,7 +3,7 @@ defmodule FarosService.PostController do
 
   def create(conn, %{"url" => url}) do
     # Call the other umbrella app directly
-    PostService.create(url) # Will save the entered url to the database
+    OldPostService.create(url) # Will save the entered url to the database
     redirect conn, to: post_path(conn, :new)
   end
 

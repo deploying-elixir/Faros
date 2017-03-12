@@ -3,6 +3,10 @@ defmodule PostService.PostRepositoryTest do
 
   alias PostService.PostRepository
 
+  setup do
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(PostService.Repo)
+  end
+
   test "post can be persisted" do
 
     post = PostRepository.create("post-name", "post-description")

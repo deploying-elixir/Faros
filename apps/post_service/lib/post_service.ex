@@ -3,15 +3,6 @@ defmodule PostService do
   Documentation for PostService.
   """
 
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> PostService.hello
-      :world
-
-  """
   def hello do
     :world
   end
