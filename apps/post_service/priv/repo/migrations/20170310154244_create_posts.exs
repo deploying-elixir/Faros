@@ -3,8 +3,8 @@ defmodule PostService.Repo.Migrations.CreatePosts do
 
   def change do
     create table(:posts) do
-      add :post_name, :string
-      add :post_description, :string
+      add :name, :string
+      add :description, :string
     end
   end
 end
