@@ -8,7 +8,7 @@ defmodule FarosService.Mixfile do
      config_path: "../../config/config.exs",
      deps_path: "../../deps",
      lockfile: "../../mix.lock",
-     elixir: "~> 1.2",
+     elixir: "~> 1.4",
      elixirc_paths: elixirc_paths(Mix.env),
      compilers: [:phoenix, :gettext] ++ Mix.compilers,
      build_embedded: Mix.env == :prod,
@@ -41,7 +41,7 @@ defmodule FarosService.Mixfile do
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:gettext, "~> 0.11"},
      {:cowboy, "~> 1.0"},
-     {:posts, in_umbrella: true}]
+     {:post_service, in_umbrella: true}]
   end
 
   # Aliases are shortcuts or tasks specific to the current project.

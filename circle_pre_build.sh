@@ -6,7 +6,7 @@ set -e
 # Check for asdf
 if ! asdf | grep version; then
   # Install asdf into ~/.asdf if not previously installed
-  git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.1.0
+  git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.2.0
 fi
 
 # Add plugins (Erlang and Elixir) for asdf

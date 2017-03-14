@@ -1,6 +1,6 @@
-defmodule PostsTest do
+defmodule PostServiceTest do
   use ExUnit.Case
-  doctest Posts
+  doctest PostService
 
   test "the truth" do
     assert 1 + 1 == 2
