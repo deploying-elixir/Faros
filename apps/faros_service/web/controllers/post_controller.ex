@@ -12,8 +12,7 @@ defmodule FarosService.PostController do
   end
 
   def show_all(conn, _params) do
-    IO.puts "Showing all posts"
-    PostService.all()
-    render conn, "all_posts.html", all_posts
+    all_posts = PostService.all()
+    render conn, "all_posts.html", all_posts: all_posts
   end
 end

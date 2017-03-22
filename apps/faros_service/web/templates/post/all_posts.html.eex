@@ -3,5 +3,13 @@
 </div>
 <div>
   <h1>Here are all the posts:</h1>
+  <table>
 
+    <%= for posts <- @all_posts do %>
+      <tr>
+        <td><%= posts.name%></td>
+        <td><%= posts.description%></td>
+      </tr>
+    <% end %>
+  </table>
 </div>

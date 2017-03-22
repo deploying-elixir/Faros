@@ -5,6 +5,6 @@ defmodule PostService do
   end
 
   def all() do
-
+    DbService.all()
   end
 end

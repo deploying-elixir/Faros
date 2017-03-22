@@ -20,7 +20,7 @@ defmodule DbService.PostRepositoryTest do
     PostRepository.create("post-2", "post-description")
 
     all_posts = PostRepository.all()
-    IO.inspect all_posts
+
     assert length(all_posts) == 2
   end
 end
