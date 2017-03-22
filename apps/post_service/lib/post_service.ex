@@ -3,4 +3,8 @@ defmodule PostService do
     DbService.persist("post", %{:post_url => new_post,
                                 :description => description})
   end
+
+  def all() do
+
+  end
 end
