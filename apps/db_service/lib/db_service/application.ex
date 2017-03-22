@@ -12,6 +12,7 @@ defmodule DbService.Application do
     children = [
       # Starts a worker by calling: DbService.Worker.start_link(arg1, arg2, arg3)
       # worker(DbService.Worker, [arg1, arg2, arg3]),
+      supervisor(DbService.Repo, [])
     ]
 
     # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html
