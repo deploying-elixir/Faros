@@ -3,9 +3,17 @@ defmodule PostService do
   Documentation for PostService.
   """
 
+  @doc """
+  Hello world.
+
+  ## Examples
+
+  iex> PostService.hello
+  :world
+
+  """
   def create(new_post) do
-    # Persist post to database with an id
-    IO.puts "NEW SERVICE:::::::"
+    IO.puts "NEW SERVICE:::::"
     IO.inspect(new_post)
   end
 end
