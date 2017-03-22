@@ -6,6 +6,7 @@
     <input type="hidden" name="_csrf_token" value="<%= get_csrf_token() %>"/>
 
     <input type="text" name="url"/>
+    <input type="text" name="description"/>
     <button type="submit">Add Post</button>
   </form>
 

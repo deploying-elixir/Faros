@@ -2,7 +2,7 @@ use Mix.Config
 
 config :logger, :console, format: "[$level] $message\n"
 
-config :post_service,
+config :db_service,
   ecto_repos: [DbService.Repo]
 
 # Configure your database

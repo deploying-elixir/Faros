@@ -11,7 +11,8 @@ defmodule PostService.Mixfile do
      elixir: "~> 1.4",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
-     deps: deps()]
+     deps: deps(),
+     aliases: aliases()]
   end
 
   # Configuration for the OTP application
@@ -19,7 +20,7 @@ defmodule PostService.Mixfile do
   # Type "mix help compile.app" for more information
   def application do
     # Specify extra applications you'll use from Erlang/Elixir
-    [extra_applications: [:logger]]
+    [extra_applications: [:logger, :db_service]]
   end
 
   # Dependencies can be Hex packages:
@@ -36,6 +37,13 @@ defmodule PostService.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    []
+    [{:db_service, in_umbrella: true}]
+  end
+
+  defp aliases do
+    ["ecto.setup": ["ecto.create", "ecto.migrate", "ecto.seed"],
+     "ecto.reset": ["ecto.drop", "ecto.setup"],
+     "test": ["ecto.create --quiet", "ecto.migrate", "test"]]
+
   end
 end

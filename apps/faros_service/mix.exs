@@ -13,7 +13,8 @@ defmodule FarosService.Mixfile do
      compilers: [:phoenix, :gettext] ++ Mix.compilers,
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
-     deps: deps()]
+     deps: deps(),
+     aliases: aliases()]
   end
 
   # Configuration for the OTP application.
@@ -22,7 +23,7 @@ defmodule FarosService.Mixfile do
   def application do
     [mod: {FarosService, []},
      applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex]]
+                    :phoenix_ecto, :postgrex, :post_service]]
   end
 
   # Specifies which paths to compile per environment.
@@ -50,4 +51,10 @@ defmodule FarosService.Mixfile do
   #     $ mix ecto.setup
   #
   # See the documentation for `Mix` for more info on aliases.
+
+  defp aliases do
+    ["ecto.setup": ["ecto.create", "ecto.migrate", "ecto.seed"],
+     "ecto.reset": ["ecto.drop", "ecto.setup"],
+     "test": ["ecto.create --quiet", "ecto.migrate", "test"]]
+  end
 end

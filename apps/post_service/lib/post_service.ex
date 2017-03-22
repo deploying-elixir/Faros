@@ -1,19 +1,6 @@
 defmodule PostService do
-  @moduledoc """
-  Documentation for PostService.
-  """
-
-  @doc """
-  Hello world.
-
-  ## Examples
-
-  iex> PostService.hello
-  :world
-
-  """
-  def create(new_post) do
-    IO.puts "NEW SERVICE:::::"
-    IO.inspect(new_post)
+  def create(new_post, description) do
+    DbService.persist("post", %{:post_url => new_post,
+                                :description => description})
   end
 end
