@@ -1,9 +1,8 @@
 defmodule FarosService.PostController do
   use FarosService.Web, :controller
 
-  def create(conn, %{"url" => url}) do
-    # Call the other umbrella app directly
-    PostService.create(url) # Will save the entered url to the database
+  def create(conn, %{"url" => url, "description" => description}) do
+    PostService.create(url, description) # Will save the entered url to the database
     redirect conn, to: post_path(conn, :new)
   end
 
@@ -13,7 +12,7 @@ defmodule FarosService.PostController do
   end
 
   def show_all(conn, _params) do
-    IO.puts "Showing all posts"
-    render conn, "all_posts.html"
+    all_posts = PostService.all()
+    render conn, "all_posts.html", all_posts: all_posts
   end
 end

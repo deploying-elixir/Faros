@@ -2,14 +2,14 @@ use Mix.Config
 
 config :logger, :console, format: "[$level] $message\n"
 
-config :post_service,
-  ecto_repos: [PostService.Repo]
+config :db_service,
+  ecto_repos: [DbService.Repo]
 
 # Configure your database
-config :post_service, PostService.Repo,
+config :db_service, DbService.Repo,
   adapter: Ecto.Adapters.Postgres,
   username: "postgres",
   password: "postgres",
-  database: "faros_service_dev",
+  database: "db_service_dev",
   hostname: "localhost",
   pool_size: 10

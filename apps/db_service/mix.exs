@@ -1,8 +1,8 @@
-defmodule PostService.Mixfile do
+defmodule DbService.Mixfile do
   use Mix.Project
 
   def project do
-    [app: :post_service,
+    [app: :db_service,
      version: "0.1.0",
      build_path: "../../_build",
      config_path: "../../config/config.exs",
@@ -20,7 +20,8 @@ defmodule PostService.Mixfile do
   # Type "mix help compile.app" for more information
   def application do
     # Specify extra applications you'll use from Erlang/Elixir
-    [extra_applications: [:logger, :db_service]]
+    [extra_applications: [:logger, :ecto, :postgrex],
+     mod: {DbService.Application, []}]
   end
 
   # Dependencies can be Hex packages:
@@ -37,13 +38,13 @@ defmodule PostService.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    [{:db_service, in_umbrella: true}]
+    [{:ecto, "~> 2.0"},
+     {:postgrex, "~> 0.11"}]
   end
 
   defp aliases do
     ["ecto.setup": ["ecto.create", "ecto.migrate", "ecto.seed"],
      "ecto.reset": ["ecto.drop", "ecto.setup"],
      "test": ["ecto.create --quiet", "ecto.migrate", "test"]]
-
   end
 end

@@ -1,11 +1,10 @@
 defmodule PostService do
-  @moduledoc """
-  Documentation for PostService.
-  """
+  def create(new_post, description) do
+    DbService.persist("post", %{:post_url => new_post,
+                                :description => description})
+  end
 
-  def create(new_post) do
-    # Persist post to database with an id
-    IO.puts "NEW SERVICE:::::::"
-    IO.inspect(new_post)
+  def all() do
+    DbService.all()
   end
 end
