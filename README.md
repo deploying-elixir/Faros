@@ -1,5 +1,7 @@
 # Faros
 
+[![CircleCI](https://circleci.com/gh/Maikon/Faros.svg?style=svg)](https://circleci.com/gh/Maikon/Faros)
+
 Welcome to the Faros Application.
 
 # Running Locally
