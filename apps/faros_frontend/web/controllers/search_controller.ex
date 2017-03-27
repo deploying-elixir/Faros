@@ -2,12 +2,13 @@ defmodule FarosFrontend.SearchController do
   use FarosFrontend.Web, :controller
 
   def index(conn, _params) do
-    results = case get_flash(conn, :results) do
-                nil -> []
+    [%{results: ah}] = case MemoryDb.lookup(%{type: :search}) do
+                [] -> [%{results: []}]
+                %{} -> %{results: []}
                 results -> results
               end
 
-    render conn, "index.html", results: results
+    render conn, "index.html", results: ah
   end
 
   def search(conn, %{"topic" => topic, "amount" => amount}) do
@@ -26,15 +27,8 @@ defmodule FarosFrontend.SearchController do
                :true -> []
              end
 
-    updated_conn = put_flash(conn, :results, result)
+    MemoryDb.store(%{type: :search, results: result})
 
-    # FarosFrontend.Endpoint.broadcast(
-    #   "search:results",
-    #   "new_search",
-    #   %{body: result}
-    # )
-
-    # send_resp(conn, 201, "")
-    redirect updated_conn, to: search_path(updated_conn, :index)
+    redirect conn, to: search_path(conn, :index)
   end
 end

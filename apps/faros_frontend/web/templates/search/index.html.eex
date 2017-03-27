@@ -12,7 +12,6 @@
   </form>
 </div>
 
-<h4> Results</h4>
 <%=  for topic <- @results do %>
   <section class="topic">
     <p>

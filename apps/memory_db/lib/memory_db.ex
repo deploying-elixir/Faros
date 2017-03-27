@@ -43,6 +43,10 @@ defmodule MemoryDb do
     {:reply, results, state}
   end
 
+  def handle_call({:lookup_search, %{type: :search}}, _from, state) do
+    {:reply, state.search, state}
+  end
+
   def handle_call({:lookup_post, %{type: :post}}, _from, state) do
     {:reply, state.post, state}
   end
