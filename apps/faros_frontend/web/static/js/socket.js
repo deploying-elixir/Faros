@@ -5,7 +5,50 @@
 // and connect at the socket path in "lib/my_app/endpoint.ex":
 import {Socket} from "phoenix"
 
-let socket = new Socket("/socket", {params: {token: window.userToken}})
+let socket = new Socket("/search", {params: {token: window.userToken}})
+
+socket.connect()
+
+let channel = socket.channel("search:results", {})
+
+channel.on("new_search", payload => {
+  let messages = $('#messages')
+  let template = build_template(payload.body)
+
+  messages.before(template)
+})
+
+channel.join()
+  .receive("ok", resp => { console.log("Joined successfully", resp) })
+  .receive("error", resp => { console.log("Unable to join", resp) })
+
+function build_template(body) {
+  if(body.attributes !== undefined) {
+    return hasMatch(body)
+  } else {
+    let result = body.title
+    let timestamp = newTimestamp()
+    return `<div>Time: ${timestamp} - ${result}</div>`
+  }
+}
+
+function hasMatch(body) {
+  let status = body.attributes.result
+  let result = `Sanctions check has ${status}`
+  let timestamp = newTimestamp()
+
+  if (status === 'matches-found') {
+    let caseUrl = body.attributes.caseUrl
+
+    return `<div>Time: ${timestamp} - ${result} - More details here: <a href="${caseUrl}">link</a></div>`
+  } else {
+    return `<div>Time: ${timestamp} - ${result}</div>`
+  }
+}
+
+function newTimestamp() {
+  return (new Date).toISOString();
+}
 
 // When you connect, you'll often need to authenticate the client.
 // For example, imagine you have an authentication plug, `MyAuth`,
@@ -51,12 +94,6 @@ let socket = new Socket("/socket", {params: {token: window.userToken}})
 // Finally, pass the token on connect as below. Or remove it
 // from connect if you don't care about authentication.
 
-socket.connect()
-
 // Now that you are connected, you can join channels with a topic:
-let channel = socket.channel("topic:subtopic", {})
-channel.join()
-  .receive("ok", resp => { console.log("Joined successfully", resp) })
-  .receive("error", resp => { console.log("Unable to join", resp) })
 
 export default socket

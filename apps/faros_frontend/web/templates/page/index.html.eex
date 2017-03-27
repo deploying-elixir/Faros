@@ -5,6 +5,6 @@
   </div>
   <div class="right_menu">
     <section class="option"><h4>Books</h4></section>
-    <section class="option"><h4>Search</h4></section>
+    <a href="search"><section class="option"><h4>Search</h4></section></a>
   </div>
 </div>

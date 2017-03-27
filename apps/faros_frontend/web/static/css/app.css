@@ -39,3 +39,10 @@ section h4 {
 .left_menu, .right_menu {
   float: left;
 }
+
+.topic {
+  font-family: 'Alegreya', serif;
+  font-size: 1.5em;
+  padding-top: 1.5em;
+  border-bottom: 1px solid #EED;
+}

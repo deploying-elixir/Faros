@@ -1,0 +1,29 @@
+<div class="jumbotron">
+  <form action="<%= search_path(@conn, :search) %>" method="post">
+    <input type="hidden" name="_csrf_token" value="<%= get_csrf_token() %>"/>
+
+    <label for="topic">Topic</label>
+    <input type="text" name="topic" placeholder="pizza"/>
+
+    <label for="amount">Amount</label>
+    <input type="text" name="amount" placeholder="3"/>
+
+    <button type="submit">Search</button>
+  </form>
+</div>
+
+<h4> Results</h4>
+<%=  for topic <- @results do %>
+  <section class="topic">
+    <p>
+      <strong>Topic:</strong> <%= topic.title %>
+    </p>
+    <p>
+      <strong>Description:</strong> <%= topic.description %>
+    </p>
+    <p>
+      <strong>Link:</strong>
+      <a href="<%= topic.link %>" target="_blank"><%= topic.link %></a>
+    </p>
+  </section>
+<% end %>

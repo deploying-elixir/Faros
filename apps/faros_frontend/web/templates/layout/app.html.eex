@@ -9,7 +9,7 @@
 
     <title>Hello FarosFrontend!</title>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
-    <link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Alegreya:400,700,700i,900|Cinzel" rel="stylesheet">
   </head>
 
   <body>
