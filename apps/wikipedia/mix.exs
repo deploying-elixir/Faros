@@ -37,6 +37,9 @@ defmodule Wikipedia.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    []
+      [
+        {:httpoison, "~> 0.11.1"},
+        {:json, "~> 0.3.0"}
+      ]
   end
 end
