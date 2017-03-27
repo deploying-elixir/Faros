@@ -25,13 +25,13 @@ form.link, form.button {
 /* Custom page header */
 .header {
   border-bottom: 1px solid #e5e5e5;
+  text-align: center;
 }
 .logo {
-  width: 519px;
-  height: 71px;
+  width: 100px;
+  height: 150px;
   display: inline-block;
   margin-bottom: 1em;
-  background-image: url("/images/phoenix.png");
   background-size: 519px 71px;
 }
 
