@@ -20,7 +20,7 @@ defmodule SearchTest do
   # ]
   test "result returned from wikipedia search" do
     results = Search.term(%{topic: "olympics", amount: 5})
-    # %Result{link: link, description: "text", source: "wikipedia"}
+    # %Result{title: title, description: "text", link: link}
     assert length(results) == 5
   end
 end
