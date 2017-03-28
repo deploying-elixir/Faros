@@ -19,8 +19,7 @@ defmodule SearchTest do
   #    "https://en.wikipedia.org/wiki/Olympics_on_United_States_television"]
   # ]
   test "result returned from wikipedia search" do
-    results = Search.term(%{topic: "olympics", amount: 5})
-    # %Result{title: title, description: "text", link: link}
+    results = Search.for_topic(%{topic: "olympics", amount: 5})
     assert length(results) == 5
   end
 end
