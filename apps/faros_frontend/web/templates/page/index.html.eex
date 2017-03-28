@@ -1,6 +1,6 @@
 <div class="menu">
   <div class="left_menu">
-    <section class="option"><h4>Posts</h4></section>
+    <a href="post"><section class="option"><h4>Posts</h4></section></a>
     <section class="option"><h4>Videos</h4></section>
   </div>
   <div class="right_menu">

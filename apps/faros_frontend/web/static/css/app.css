@@ -40,6 +40,10 @@ section h4 {
   float: left;
 }
 
+textarea {
+  vertical-align: top;
+}
+
 .topic {
   font-family: 'Alegreya', serif;
   font-size: 1.5em;
