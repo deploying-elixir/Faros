@@ -1,33 +1,20 @@
 defmodule FarosFrontend.SearchController do
   use FarosFrontend.Web, :controller
-
+  #need to put a wrapper around memorydb
   def index(conn, _params) do
-    [%{results: ah}] = case MemoryDb.lookup(%{type: :search}) do
+    [%{results: all_results}] = case MemoryDb.lookup(%{type: :search}) do
                 [] -> [%{results: []}]
                 %{} -> %{results: []}
                 results -> results
-              end
+    end
 
-    render conn, "index.html", results: ah
+    render conn, "index.html", results: all_results
   end
 
-  def search(conn, %{"topic" => topic, "amount" => amount}) do
-    query = %{topic: topic, amount: String.to_integer(amount)}
+  def search(conn, query) do
+    search = Application.get_env(:faros_frontend, :search)
 
-    Application.get_env(:pharos, :parent_node)
-    |> Node.start
-    Application.get_env(:pharos, :children_nodes)
-    |> Enum.each(&Node.connect/1)
-    nodes = Node.list
-
-    r = :rpc.multicall(nodes, Search, :for_topic, [query])
-
-    result = case r do
-               {good, _bad} -> good |> List.flatten
-               :true -> []
-             end
-
-    MemoryDb.store(%{type: :search, results: result})
+    search.execute(query)
 
     redirect conn, to: search_path(conn, :index)
   end
