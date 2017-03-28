@@ -1,6 +1,6 @@
 # Faros
 
-[![CircleCI](https://circleci.com/gh/Maikon/Faros/tree/master.svg?style=svg)](https://circleci.com/gh/Maikon/Faros/tree/master)
+[![CircleCI](https://circleci.com/gh/Maikon/Faros.svg?style=svg&circle-token=d426a2c064bb29bd83ff0ddfe106308e7c77d743)](https://circleci.com/gh/Maikon/Faros)
 
 Welcome to the Faros Application.
 
