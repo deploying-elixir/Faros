@@ -1,13 +1,12 @@
 defmodule FarosFrontend.SearchController do
   use FarosFrontend.Web, :controller
-  #need to put a wrapper around memorydb
-  def index(conn, _params) do
-    [%{results: all_results}] = case MemoryDb.lookup(%{type: :search}) do
-                [] -> [%{results: []}]
-                %{} -> %{results: []}
-                results -> results
-    end
 
+  def index(conn, _params) do
+    all_results = case MemoryDb.lookup(:search, :all)
+     do
+       {:all, :not_found} -> []
+       all_results -> all_results
+     end
     render conn, "index.html", results: all_results
   end
 

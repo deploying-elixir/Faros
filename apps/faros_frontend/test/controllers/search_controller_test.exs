@@ -6,8 +6,12 @@ defmodule FarosService.SearchControllerTest do
     assert conn.status == 302
   end
 
-  #test "GET /search displays search results", %{conn: conn} do
-  #  conn = get conn, "/search" #, topic: "a-topic", amount: "amount"
-  #  assert html_response(conn, 200) =~ "a-topic"
-  #end
+  #  test "GET /search displays search results", %{conn: conn} do
+  #    search_result = %Result{title: "a-title", description: "a-description", link: "a-link", source: :guardian}
+  #    MemoryDb.store("a-topic", [search_result])
+  #
+  #    conn = get conn, "/search"
+  #
+  #    assert html_response(conn, 200) =~ "a-description"
+  #  end
 end

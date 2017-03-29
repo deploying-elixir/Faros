@@ -1,6 +1,7 @@
 defmodule Core.RealSearch do
 
   def execute(%{"topic" => topic, "amount" => amount} = query) do
+IO.inspect("REAL SAERCH")
     query = %{topic: topic, amount: String.to_integer(amount)}
 
     Application.get_env(:pharos, :parent_node)
@@ -17,6 +18,6 @@ defmodule Core.RealSearch do
                :true -> []
              end
 
-    MemoryDb.store(%{type: :search, results: result})
+    MemoryDb.store(topic, result)
   end
 end

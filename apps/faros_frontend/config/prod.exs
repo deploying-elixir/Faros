@@ -18,7 +18,7 @@ config :faros_frontend, FarosFrontend.Endpoint,
 
 # Do not print debug messages in production
 config :logger, level: :info
-config :faros_service, search: Core.RealSearch
+config :faros_frontend, search: Core.RealSearch
 
 # ## SSL Support
 #

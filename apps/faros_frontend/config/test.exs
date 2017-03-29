@@ -5,6 +5,7 @@ use Mix.Config
 config :faros_frontend, FarosFrontend.Endpoint,
   http: [port: 4001],
   server: false
+
 config :faros_frontend, search: Core.FakeSearch
 
 # Print only warnings and errors during test
