@@ -1,13 +1,12 @@
 defmodule Core.RealSearch do
 
-  def execute(%{"topic" => topic, "amount" => amount} = query) do
-IO.inspect("REAL SAERCH")
+  def execute(%{"topic" => topic, "amount" => amount}) do
     query = %{topic: topic, amount: String.to_integer(amount)}
 
-    Application.get_env(:pharos, :parent_node)
+    Application.get_env(:faros_frontend, :parent_node)
     |> Node.start
 
-    Application.get_env(:pharos, :children_nodes)
+    Application.get_env(:faros_frontend, :children_nodes)
     |> Enum.each(&Node.connect/1)
     nodes = Node.list
 

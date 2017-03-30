@@ -12,17 +12,20 @@
   </form>
 </div>
 
-<%=  for topic <- @results do %>
-  <section class="topic">
-    <p>
-      <strong>Topic:</strong> <%= topic.title %>
-    </p>
-    <p>
-      <strong>Description:</strong> <%= topic.description %>
-    </p>
-    <p>
-      <strong>Link:</strong>
-      <a href="<%= topic.link %>" target="_blank"><%= topic.link %></a>
-    </p>
-  </section>
+<%=  for {topic, results} <- @results do %>
+  <h2 class="topic-heading"><%= capitalize(topic) %></h2>
+  <%=  for result <- results do %>
+    <section class="topic">
+      <p>
+        <strong>Topic:</strong> <%= result.title %>
+      </p>
+      <p>
+        <strong>Description:</strong> <%= result.description %>
+      </p>
+      <p>
+        <strong>Link:</strong>
+        <a href="<%= result.link %>" target="_blank"><%= result.link %></a>
+      </p>
+    </section>
+  <% end %>
 <% end %>

@@ -50,3 +50,8 @@ textarea {
   padding-top: 1.5em;
   border-bottom: 1px solid #EED;
 }
+
+.topic-heading {
+  padding: 1em 0;
+  border-bottom: 1px solid #EED;
+}

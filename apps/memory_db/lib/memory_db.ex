@@ -19,21 +19,42 @@ defmodule MemoryDb do
   end
 
   @doc """
+  Retrieves all the results for the given term
+
+  ## Examples
+
+      iex> results = [%{description: "A pizza article"}]
+      iex> MemoryDb.store("pizza", results)
+      iex> :ok
+
+      iex> results = [%{description: "An olympics article"}]
+      iex> MemoryDb.store("olympics", results)
+      iex> :ok
+
+      iex> MemoryDb.all(:search)
+      iex> {:search, [%{description: "A pizza article"}, %{description: "An olympics article"}]}
+  """
+  @spec all() :: [map]
+  def all() do
+    GenServer.call(__MODULE__, :all)
+  end
+
+  @doc """
   Retrieves the results for the given key
 
   ## Examples
-      iex> MemoryDb.lookup(:search, "pizza")
+      iex> MemoryDb.lookup("pizza")
       iex> {"pizza", [%{description: "A pizza article"}]}
 
       iex> results = [%{description: "A pizza article"}]
       iex> MemoryDb.store("pizza", results)
       iex> :ok
 
-      iex> MemoryDb.lookup(:search, "pizza")
+      iex> MemoryDb.lookup("pizza")
       iex> {"pizza", [%{description: "A pizza article"}]}
   """
-  @spec lookup(atom, String.t) :: {String.t, list(map)}
-  def lookup(:search, topic) do
+  @spec lookup(String.t) :: {String.t, list(map)}
+  def lookup(topic) do
     GenServer.call(__MODULE__, {:lookup, topic})
   end
 
@@ -43,21 +64,21 @@ defmodule MemoryDb do
 
   ## Examples
 
-      iex> MemoryDb.lookup(:search, "pizza")
+      iex> MemoryDb.lookup("pizza")
       iex> {"pizza", :not_found}
 
       iex> results = [%{description: "A pizza article"}]
       iex> MemoryDb.store("pizza", results)
       iex> :ok
 
-      iex> MemoryDb.lookup(:search, "pizza")
+      iex> MemoryDb.lookup("pizza")
       iex> {"pizza", [%{description: "A pizza article"}]}
 
       iex> new_results = [%{description: "Another pizza article"}]
       iex> MemoryDb.store("pizza", new_results)
       iex> :ok
 
-      iex> MemoryDb.lookup(:search, "pizza")
+      iex> MemoryDb.lookup("pizza")
       iex> {"pizza", [%{description: "A pizza article"}, %{description: "Another pizza article"}]}
   """
   @spec store(String.t, list(map)) :: none
@@ -77,6 +98,10 @@ defmodule MemoryDb do
     |> fetch_result
 
     {:reply, {topic, result}, state}
+  end
+
+  def handle_call(:all, _from, state) do
+    {:reply, state, state}
   end
 
   defp fetch_result({:ok, result}), do: result

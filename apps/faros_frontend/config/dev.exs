@@ -6,8 +6,8 @@ use Mix.Config
 # The watchers configuration can be used to run external
 # watchers to your application. For example, we use it
 # with brunch.io to recompile .js and .css sources.
-config :pharos, parent_node: :"faros@127.0.0.1"
-config :pharos, children_nodes: [
+config :faros_frontend, parent_node: :"faros@127.0.0.1"
+config :faros_frontend, children_nodes: [
   :"wiki@127.0.0.1",
   :"twitter@127.0.0.1"
 ]
