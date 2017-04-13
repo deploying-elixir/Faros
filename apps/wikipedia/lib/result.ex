@@ -1,3 +1,3 @@
 defmodule Result do
-  defstruct [:title, :description, :link]
+  defstruct [:title, :description, :link, :source]
 end

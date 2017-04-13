@@ -18,7 +18,7 @@ defmodule Response do
   end
 
   defp create_struct(details = {title, description, link}) do
-    %Result{title: title, description: description, link: link}
+    %Result{title: title, description: description, link: link, source: 'wikipedia'}
   end
 end
 

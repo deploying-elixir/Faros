@@ -31,7 +31,8 @@ defmodule Faros.Mixfile do
 
   defp deps do
     [
-      {:httpoison, "~> 0.11.1"}
+      {:httpoison, "~> 0.11.1"},
+      {:distillery, "~> 1.0"}
     ]
   end
 end
