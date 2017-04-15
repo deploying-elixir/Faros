@@ -11,8 +11,7 @@ defmodule PostService.Mixfile do
      elixir: "~> 1.4",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
-     deps: deps(),
-     aliases: aliases()]
+     deps: deps()]
   end
 
   # Configuration for the OTP application
@@ -38,12 +37,5 @@ defmodule PostService.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [{:db_service, in_umbrella: true}]
-  end
-
-  defp aliases do
-    ["ecto.setup": ["ecto.create", "ecto.migrate", "ecto.seed"],
-     "ecto.reset": ["ecto.drop", "ecto.setup"],
-     "test": ["ecto.create --quiet", "ecto.migrate", "test"]]
-
   end
 end
