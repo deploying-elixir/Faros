@@ -1,4 +1,4 @@
-defmodule Search do
+defmodule Twitter.Search do
   alias Twitter.{Client, Authentication, Transform, Request, SearchParams}
   require Logger
   alias IO.ANSI

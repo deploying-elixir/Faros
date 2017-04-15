@@ -37,3 +37,14 @@ Start the server locally
 Navigate to a supported url
 > https://localhost:4000/posts
 
+# Services which require authentication
+
+Before running the application:
+
+Copy the `.env-example` to `.env`
+> cp .env-example .env
+
+Add the keys you require for the api you are using. Some example twitter keys are in place as an example.
+
+Source the .env file
+> source(.env)
