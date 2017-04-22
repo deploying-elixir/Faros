@@ -21,7 +21,7 @@ defmodule FarosFrontend.Mixfile do
   # Type `mix help compile.app` for more information.
   def application do
     [mod: {FarosFrontend, []},
-     applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext, :memory_db, :db_service, :wikipedia, :twitter]]
+     applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext, :memory_db, :post_service, :wikipedia, :twitter]]
   end
 
   # Specifies which paths to compile per environment.
