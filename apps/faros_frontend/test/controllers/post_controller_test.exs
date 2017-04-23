@@ -1,6 +1,10 @@
 defmodule FarosFrontend.PostControllerTest do
   use FarosFrontend.ConnCase
 
+  setup do
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(DbService.Repo)
+  end
+
   test "GET /post shows landing page for posts", %{conn: conn} do
     conn = get conn, "/post"
     assert html_response(conn, 200) =~ "Add Post"

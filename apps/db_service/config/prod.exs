@@ -3,7 +3,11 @@ use Mix.Config
 config :logger, level: :info
 
 config :db_service, DbService.Repo,
-adapter: Ecto.Adapters.Postgres,
-url: System.get_env("DATABASE_URL"),
-pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10"),
-ssl: true
+  adapter: Ecto.Adapters.Postgres,
+  ssl: true,
+  username: “${DB_USER}“,
+  password: “${DB_PASSWORD}“,
+  database: “${DB_NAME}“,
+  hostname: “${DB_HOST}“,
+  pool_size: 20
+
