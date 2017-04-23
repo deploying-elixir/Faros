@@ -6,7 +6,7 @@ Welcome to the Faros Application.
 
 # Running Locally
 
-You need to have Elixir installed, and postgres
+You need to have Elixir and postgres installed
 
 Clone the repository
 > git clone git@github.com:Maikon/Faros.git
