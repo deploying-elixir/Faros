@@ -1,15 +1,14 @@
 # Faros
 
-[![CircleCI](https://circleci.com/gh/Maikon/Faros.svg?style=svg&circle-token=d426a2c064bb29bd83ff0ddfe106308e7c77d743)](https://circleci.com/gh/Maikon/Faros)
-
+[![CircleCI](https://circleci.com/gh/deploying-elixir/Faros/tree/master.svg?style=svg)](https://circleci.com/gh/deploying-elixir/Faros/tree/master)
 Welcome to the Faros Application.
 
 # Running Locally
 
-You need to have Elixir and postgres installed
+You need to have Elixir and postgres installed. For the assets to render, Node and npm also need to be installed.
 
 Clone the repository
-> git clone git@github.com:Maikon/Faros.git
+> git clone git@github.com:deploying-elixir/Faros.git
 
 Navigate to the root directory
 > cd Faros
@@ -32,11 +31,20 @@ Build the database (test env)
 Run the tests
 > mix test
 
-Start the server locally
-> mix phoenix.server
+Compile the assets
+> cd apps/faros_frontend
 
-Navigate to a supported url
-> https://localhost:4000/posts
+> npm install
+
+Start the server locally (dev env)
+> MIX_ENV=dev mix ecto.create
+
+> MIX_ENV=dev mix ecto.migrate
+
+> MIX_ENV=dev mix phoenix.server
+
+Navigate to the home page:
+> https://localhost:4040
 
 # Services which require authentication
 
