@@ -26,6 +26,7 @@ Build the database (dev env)
 
 Build the database (test env)
 > MIX_ENV=test mix ecto.create
+
 > MIX_ENV=test mix ecto.migrate
 
 Run the tests
