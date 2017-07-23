@@ -1,10 +1,8 @@
 <div class="menu">
   <div class="left_menu">
     <a href="post"><section class="option"><h4>Posts</h4></section></a>
-    <section class="option"><h4>Videos</h4></section>
   </div>
   <div class="right_menu">
-    <section class="option"><h4>Books</h4></section>
     <a href="search"><section class="option"><h4>Search</h4></section></a>
   </div>
 </div>
